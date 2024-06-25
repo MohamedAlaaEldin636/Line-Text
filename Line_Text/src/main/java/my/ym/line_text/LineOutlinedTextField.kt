@@ -127,7 +127,7 @@ private val OutlinedTextFieldTopPadding = 8.dp
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun LineOutlinedTextField(
+fun LineOutlinedTextField(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -331,7 +331,7 @@ internal fun LineOutlinedTextField(
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun LineOutlinedTextField(
+fun LineOutlinedTextField(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,

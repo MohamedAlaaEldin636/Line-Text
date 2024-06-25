@@ -72,7 +72,7 @@ import my.ym.line_text.extensions.heightFixedAndAlignContent
  * @param onTextLayout same as in [Text].
  */
 @Composable
-internal fun LineText(
+fun LineText(
     text: String,
     modifier: Modifier = Modifier,
     color: Color = Color.Unspecified,
@@ -173,7 +173,7 @@ internal fun LineText(
  * @param inlineContent same as in [Text].
  */
 @Composable
-internal fun LineText(
+fun LineText(
     text: AnnotatedString,
     modifier: Modifier = Modifier,
     color: Color = Color.Unspecified,

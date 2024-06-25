@@ -121,7 +121,7 @@ import my.ym.line_text.extensions.LineInnerTextField
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun LineTextField(
+fun LineTextField(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -309,7 +309,7 @@ internal fun LineTextField(
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun LineTextField(
+fun LineTextField(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,

@@ -65,7 +65,7 @@ import my.ym.line_text.extensions.LineInnerTextField
  * @param decorationBox same as in [BasicTextField].
  */
 @Composable
-internal fun LineBasicTextField(
+fun LineBasicTextField(
     modifier: Modifier = Modifier,
     value: String,
     onValueChange: (String) -> Unit,
@@ -171,7 +171,7 @@ internal fun LineBasicTextField(
  * @param decorationBox same as in [BasicTextField].
  */
 @Composable
-internal fun LineBasicTextField(
+fun LineBasicTextField(
     modifier: Modifier = Modifier,
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
