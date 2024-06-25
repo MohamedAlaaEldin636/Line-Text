@@ -7,11 +7,12 @@ import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.coerceAtMost
 import my.ym.line_text.LineTextField
+import my.ym.line_text.LineOutlinedTextField
 import my.ym.line_text.LineBasicTextField
 
 /**
  * - Represents the container that calls `innerTextField` composable inside [LineBasicTextField]
- * & [LineTextField], but with additional adjustments to overcome font issue.
+ * & [LineTextField] & [LineOutlinedTextField], but with additional adjustments to overcome font issue.
  *
  * @param innerTextField composable that is required to be called.
  *

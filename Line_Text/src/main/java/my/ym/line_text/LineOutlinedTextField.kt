@@ -5,6 +5,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -13,10 +14,12 @@ import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldColors
-import androidx.compose.material3.TextFieldDefaults.DecorationBox
+import androidx.compose.material3.OutlinedTextFieldDefaults.DecorationBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.State
@@ -33,10 +36,13 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import my.ym.line_text.extensions.LineInnerTextField
+
+private val OutlinedTextFieldTopPadding = 8.dp
 
 /**
  * ## What's this
@@ -46,7 +52,7 @@ import my.ym.line_text.extensions.LineInnerTextField
  *
  * ## Note
  *
- * - Implementation is an exact copy of [TextField], as immediate call like [LineText]
+ * - Implementation is an exact copy of [OutlinedTextField], as immediate call like [LineText]
  * & [LineBasicTextField] isn't available as `decorationBox` isn't an available parameter,
  * So might need maintenance in future version updates to compose.
  *
@@ -121,7 +127,7 @@ import my.ym.line_text.extensions.LineInnerTextField
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun LineTextField(
+internal fun LineOutlinedTextField(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -144,8 +150,8 @@ internal fun LineTextField(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     textStyle: TextStyle = LocalTextStyle.current,
     lineHeight: @Composable () -> Dp = { textStyle.lineHeight.value.dp },
-    shape: Shape = TextFieldDefaults.shape,
-    colors: TextFieldColors = TextFieldDefaults.colors(),
+    shape: Shape = OutlinedTextFieldDefaults.shape,
+    colors: TextFieldColors = OutlinedTextFieldDefaults.colors(),
     textSelectionColors: TextSelectionColors = LocalTextSelectionColors.current,
     errorCursorColor: Color = MaterialTheme.colorScheme.error,
     cursorColor: Color = MaterialTheme.colorScheme.primary,
@@ -165,11 +171,19 @@ internal fun LineTextField(
     CompositionLocalProvider(LocalTextSelectionColors provides textSelectionColors) {
         BasicTextField(
             value = value,
-            modifier = modifier
-                .defaultMinSize(
-                    minWidth = TextFieldDefaults.MinWidth,
-                    minHeight = TextFieldDefaults.MinHeight
-                ),
+            modifier = if (label != null) {
+                modifier
+                    // Merge semantics at the beginning of the modifier chain to ensure padding is
+                    // considered part of the text field.
+                    .semantics(mergeDescendants = true) {}
+                    .padding(top = OutlinedTextFieldTopPadding)
+            }else {
+                modifier
+            }
+            .defaultMinSize(
+                minWidth = OutlinedTextFieldDefaults.MinWidth,
+                minHeight = OutlinedTextFieldDefaults.MinHeight
+            ),
             onValueChange = onValueChange,
             enabled = enabled,
             readOnly = readOnly,
@@ -214,12 +228,20 @@ internal fun LineTextField(
                     prefix = prefix,
                     suffix = suffix,
                     supportingText = supportingText,
-                    shape = shape,
                     singleLine = singleLine,
                     enabled = enabled,
                     isError = isError,
                     interactionSource = interactionSource,
-                    colors = colors
+                    colors = colors,
+                    container = {
+                        OutlinedTextFieldDefaults.ContainerBox(
+                            enabled,
+                            isError,
+                            interactionSource,
+                            colors,
+                            shape
+                        )
+                    }
                 )
             }
         )
@@ -234,7 +256,7 @@ internal fun LineTextField(
  *
  * ## Note
  *
- * - Implementation is an exact copy of [TextField], as immediate call like [LineText]
+ * - Implementation is an exact copy of [OutlinedTextField], as immediate call like [LineText]
  * & [LineBasicTextField] isn't available as `decorationBox` isn't an available parameter,
  * So might need maintenance in future version updates to compose.
  *
@@ -309,7 +331,7 @@ internal fun LineTextField(
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun LineTextField(
+internal fun LineOutlinedTextField(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
@@ -353,10 +375,18 @@ internal fun LineTextField(
     CompositionLocalProvider(LocalTextSelectionColors provides textSelectionColors) {
         BasicTextField(
             value = value,
-            modifier = modifier
+            modifier = if (label != null) {
+                modifier
+                    // Merge semantics at the beginning of the modifier chain to ensure padding is
+                    // considered part of the text field.
+                    .semantics(mergeDescendants = true) {}
+                    .padding(top = OutlinedTextFieldTopPadding)
+            }else {
+                modifier
+            }
                 .defaultMinSize(
-                    minWidth = TextFieldDefaults.MinWidth,
-                    minHeight = TextFieldDefaults.MinHeight
+                    minWidth = OutlinedTextFieldDefaults.MinWidth,
+                    minHeight = OutlinedTextFieldDefaults.MinHeight
                 ),
             onValueChange = onValueChange,
             enabled = enabled,
@@ -402,12 +432,20 @@ internal fun LineTextField(
                     prefix = prefix,
                     suffix = suffix,
                     supportingText = supportingText,
-                    shape = shape,
                     singleLine = singleLine,
                     enabled = enabled,
                     isError = isError,
                     interactionSource = interactionSource,
-                    colors = colors
+                    colors = colors,
+                    container = {
+                        OutlinedTextFieldDefaults.ContainerBox(
+                            enabled,
+                            isError,
+                            interactionSource,
+                            colors,
+                            shape
+                        )
+                    }
                 )
             }
         )

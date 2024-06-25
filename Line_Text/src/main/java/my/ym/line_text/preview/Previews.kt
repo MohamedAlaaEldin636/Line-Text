@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -15,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import my.ym.line_text.LineBasicTextField
+import my.ym.line_text.LineOutlinedTextField
 import my.ym.line_text.LineText
 import my.ym.line_text.LineTextField
 
@@ -82,6 +84,21 @@ private fun PreviewForceHeight3() {
             value = "Hello Line Text !",
             onValueChange = {},
             lineHeight = { 40.dp },
+            label = { Text(text = "HI") },
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun PreviewForceHeight4() {
+    Box(modifier = Modifier.padding(24.dp)) {
+        LineOutlinedTextField(
+            //modifier = Modifier.border(width = 1.dp, color = Color.Blue),
+            value = "Hello Line Text !",
+            onValueChange = {},
+            lineHeight = { 40.dp },
+            label = { Text(text = "HI") },
         )
     }
 }
