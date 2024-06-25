@@ -14,6 +14,7 @@ to understand more about the issue that's being solved isa.
     - [Library](#library-)
 - [Features](#features-)
     - [Solve Font Issues And Adapt Line Height](#solve-font-issues-and-adapt-line-height-)
+- [Preview of the Solution](#preview-of-the-solution-)
 - [Usage ( Code Examples )](#usage--code-examples--)
     - [Using **LineText**](#using-linetext-)
     - [Using **LineBasicTextField**](#using-linebasictextfield-)
@@ -96,6 +97,10 @@ by just using `LineText` instead of `Text` & `LineBasicTextField` instead of `Ba
 
 - Note, shouldn't be used if you don't care about the height as `Text` by 
 default wraps height.
+
+## Preview of the Solution [▴](#contents-)
+
+![My company logo](images/showcase_resolved_issue.png)
 
 ## Usage ( Code Examples ) [▴](#contents-)
 
