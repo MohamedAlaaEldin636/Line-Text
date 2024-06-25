@@ -18,6 +18,7 @@ to understand more about the issue that's being solved isa.
     - [Using **LineText**](#using-linetext-)
     - [Using **LineBasicTextField**](#using-linebasictextfield-)
     - [Using **LineTextField**](#using-linetextfield-)
+    - [Using **LineOutlinedTextField**](#using-lineoutlinedtextfield-)
 - [Issues & Contributions](#issues--contributions-)
 - [License](#license-)
 
@@ -101,6 +102,7 @@ default wraps height.
 - [Using **LineText**](#using-linetext-)
 - [Using **LineBasicTextField**](#using-linebasictextfield-)
 - [Using **LineTextField**](#using-linetextfield-)
+- [Using **LineOutlinedTextField**](#using-lineoutlinedtextfield-)
 
 ### Using `LineText` [▴](#usage--code-examples--)
 
@@ -149,6 +151,21 @@ LineBasicTextField(
 
 // 1st you can depend on line height in style.
 LineTextField(
+    value = "Hello Line Text !",
+    onValueChange = {},
+    // below ignores value in the style and use below 1 instead isa.
+    // If wanna use the value in style check above LineText example isa.
+    lineHeight = { 20.dp },
+)
+```
+
+### Using `LineOutlinedTextField` [▴](#usage--code-examples--)
+
+```kotlin
+// Use it like you would use any `Text` composable
+
+// 1st you can depend on line height in style.
+LineOutlinedTextField(
     value = "Hello Line Text !",
     onValueChange = {},
     // below ignores value in the style and use below 1 instead isa.
