@@ -20,5 +20,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Line Text App"
-include(":app")
+
+if (System.getenv()["JITPACK"] != true.toString()) {
+    include(":app")
+}
+
 include(":Line_Text")
