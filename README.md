@@ -100,6 +100,8 @@ default wraps height.
 
 ## Preview of the Solution [▴](#contents-)
 
+- Made by [This Code](app/src/main/java/my/ym/line_text_app/preview/ShowcaseIssues.kt)
+
 ![My company logo](images/showcase_resolved_issue.png)
 
 ## Usage ( Code Examples ) [▴](#contents-)
