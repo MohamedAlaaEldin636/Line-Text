@@ -186,6 +186,8 @@ LineOutlinedTextField(
 - If you want to add a contribution or request a feature/improvement or file a bug feel free 
 to do so via PR or a question.
 
+- `LocalDensity.current.fontScale` can be used to scale with user text size preferences, to adjust height of the LineText the height of line isa.
+
 ## [License](https://github.com/MohamedAlaaEldin636/Line-Text/blob/master/LICENSE) [▴](#contents-)
 
 ```
