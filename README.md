@@ -21,6 +21,7 @@ to understand more about the issue that's being solved isa.
     - [Using **LineTextField**](#using-linetextfield-)
     - [Using **LineOutlinedTextField**](#using-lineoutlinedtextfield-)
 - [Issues & Contributions](#issues--contributions-)
+    - [Known Issues / Upcoming Improvements](#known-issues--upcoming-improvements-)
 - [License](#license-)
 
 ## Install [▴](#contents-)
@@ -185,6 +186,14 @@ LineOutlinedTextField(
 
 - If you want to add a contribution or request a feature/improvement or file a bug feel free 
 to do so via PR or a question.
+
+### Known Issues / Upcoming Improvements [▴](#issues--contributions-)
+
+- In case user changed font size in the user settings then Line height should change accordingly, 
+Currently this sin't done, but will be as soon as possible, and solution will be keeping in mind that given style line height corresponds to no scaling.
+
+- line Height is ignored and it should be checked in case it's not added in style and should crash if not given as solution depends on it.
+
 
 ## [License](https://github.com/MohamedAlaaEldin636/Line-Text/blob/master/LICENSE) [▴](#contents-)
 
