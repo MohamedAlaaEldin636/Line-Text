@@ -190,7 +190,8 @@ to do so via PR or a question.
 ### Known Issues / Upcoming Improvements [▴](#issues--contributions-)
 
 - In case user changed font size in the user settings then Line height should change accordingly, 
-Currently this sin't done, but will be as soon as possible, and solution will be keeping in mind that given style line height corresponds to no scaling.
+Currently this sin't done, but will be as soon as possible, and solution will be keeping in mind that given style line height corresponds to no scaling, 
+Using `LocalDensity.current.fontScale` isa.
 
 - line Height is ignored and it should be checked in case it's not added in style and should crash if not given as solution depends on it.
 
